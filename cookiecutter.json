@@ -1,0 +1,9 @@
+{
+    "project_name": "python-flask-project",
+    "package_name": "{{ cookiecutter.project_name.replace('-', '_').lower() }}",
+    "friendly_name": "{{ cookiecutter.project_name.replace('-', ' ').title() }}",
+    "description": "Flask application for ...",
+    "init_git": [true, false],
+    "init_venv": [true, false],
+    "init_db": [true, false]
+}

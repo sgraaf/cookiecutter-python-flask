@@ -1,0 +1,9 @@
+[
+    {
+        "is_active": true,
+        "email_address": "test@example.org",
+        "password": "test",
+        "first_name": "Test",
+        "family_name": "User"
+    }
+]

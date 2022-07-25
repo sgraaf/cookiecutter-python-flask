@@ -1,0 +1,14 @@
+{% raw %}
+{% extends "auth/auth.html" %}
+{% block body %}
+<main class="form text-center" style="max-width: 600px">
+    <div class="p-4 border border-dark rounded bg-dark">
+        <h1 class="mb-4 fw-bold">{% block title %}{% endblock %}</h1>
+        <p class="mb-4 fs-5" style="color: #e1e6ea">
+            {% block text %}{% endblock %}
+        </p>
+        <a class="btn btn-primary w-50" href="{{ url_for('main.index') }}" role="button">{{ "Go back" }}</a>
+    </div>
+</main>
+{% endblock %}
+{%- endraw %}

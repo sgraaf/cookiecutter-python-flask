@@ -1,0 +1,42 @@
+html,
+body {
+    height: 100%;
+}
+
+/* Auth */
+.body-auth {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.auth {
+    width: 100%;
+    padding: 15px;
+    margin: auto;
+}
+
+.auth-login {
+    max-width: 340px;
+}
+
+.auth-register,
+.auth-reset-password-request,
+.auth-reset-password,
+.auth-two-factor {
+    max-width: 400px;
+}
+
+/* Color utilities */
+.bg-darkest {
+    background-color: #15151e !important;
+}
+
+.bg-dark {
+    background-color: #21212c !important;
+}
+
+.border-dark {
+    border-color: #2e2e38 !important;
+}
