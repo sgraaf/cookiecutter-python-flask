@@ -28,7 +28,6 @@ from {{ cookiecutter.package_name }}.extensions import bcrypt, db, login_manager
 class User(UserMixin, TimestampMixin, Model):
     """A user of the app."""
 
-    __tablename__ = "users"
     email_address: Mapped[str] = db.Column(
         db.String(120), unique=True, index=True, nullable=False
     )
