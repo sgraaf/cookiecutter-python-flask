@@ -1,13 +1,14 @@
 """The app module, containing the application factory function."""
 import logging
+from inspect import getmembers
 from logging.handlers import RotatingFileHandler, SMTPHandler
 from typing import Any, Dict
 
 from flask import Flask
 
 from config import LOGS_DIR, Config
+from {{ cookiecutter.package_name }} import models
 from {{ cookiecutter.package_name }}.extensions import bcrypt, bootstrap, db, login_manager, mail, moment
-from {{ cookiecutter.package_name }}.models import User
 from {{ cookiecutter.package_name }}.utils import CustomJSONEncoder, datetime_format
 
 
@@ -34,10 +35,15 @@ def register_shell_context(app: Flask) -> None:
     """Register shell context objects."""
 
     def make_shell_context() -> Dict[str, Any]:
-        return {
-            "db": db,
-            "User": User,
-        }
+        shell_context: Dict[str, Any] = {"db": db}
+        shell_context.update(
+            {
+                k: v
+                for k, v in getmembers(models)
+                if isinstance(v, type) and issubclass(v, db.Model)
+            }
+        )
+        return shell_context
 
     app.shell_context_processor(make_shell_context)
 
