@@ -2,6 +2,8 @@
 from datetime import datetime
 from typing import Type, TypeVar
 
+from sqlalchemy.orm import Mapped
+
 from {{ cookiecutter.package_name }}.extensions import db
 
 T = TypeVar("T", bound="CRUDMixin")
@@ -46,9 +48,9 @@ class CRUDMixin:
 class TimestampMixin:
     """Mixin class for timestamping models."""
 
-    created_at: datetime = db.Column(
+    created_at: Mapped[datetime] = db.Column(
         db.DateTime, nullable=False, default=datetime.utcnow
     )
-    updated_at: datetime = db.Column(
+    updated_at: Mapped[datetime] = db.Column(
         db.DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow
     )
